@@ -14,13 +14,11 @@ import {
 } from "lucide-react";
 import { use, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 
 const Navbar = () => {
   const user: any = {name:'rahul',email:"rahul@gamil.com",isAdmin:true}
-  const { cartCount, setIsCartOpen } = {
-    cartCount: 5,
-    setIsCartOpen: (_data: any) => {},
-  };
+  const { cartCount, setIsCartOpen } = useCart()
   const [searchQuery, setSearchQueery] = useState("");
   const [userMenuOpen, setUserMenu] = useState(false);
   const navigate = useNavigate();
